@@ -37,21 +37,31 @@ function handleCheckboxChange2(checkbox){
 // post-signUpForm
 // loginAnimation
 
-function animation() {
-    
-}
-
 function authenticate() {
     
-    const dni = 1001207568;
-    const pass = 1234;
-    let dni_A = document.querySelector("#dni").value;
-    let pass_A = document.querySelector("#pass").value; 
+  const dni = 1001207568;
+  const pass = 1234;
+  let dni_A = document.querySelector("#dni").value;
+  let pass_A = document.querySelector("#pass").value; 
 
-        if (dni == dni_A && pass == pass_A) {
-          alert("Si");
-        } else {
-        alert("El DNI o la clave son incorrectas");
-        }
+  if (dni == dni_A && pass == pass_A) {
+    const post = document.getElementById("post-signup-form")
+    const head = document.getElementById("head")
+    const login = document.getElementById("login-form")
+    login.addEventListener('submit', async (e) => {
+      e.preventDefault()
+            
+      login.classList.toggle('login')
+
+      setTimeout(() => {
+        login.classList.toggle('dilog')
+        head.classList.toggle('header')
+        post.classList.toggle('post')
+        post.classList.toggle('opacity')
+      }, 1000);  
+      })      
+  } else {
+  alert("El DNI o la clave son incorrectas");
+  }
 }
 // loginAnimation

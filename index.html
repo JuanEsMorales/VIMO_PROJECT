@@ -9,17 +9,17 @@
     <script src="main.js" type="module"></script>
 </head>
 <body>
-    <header>
+    <header class="" id="head">
         <img src="vimo.PNG" alt="Logo VIMO">
     </header>
     <section>
         <div class="content">
             <form class="form" id="login-form">
-                <input type="text" name="dni" id="dni" placeholder="DNI" class="form-control" required>
-                <input type="password" name="contra" id="pass" placeholder="Clave" class="form-control" required>
+                <input type="text" name="dni" id="dni" placeholder="DNI" class="form-control">
+                <input type="password" name="contra" id="pass" placeholder="Clave" class="form-control">
                 <button class="btn btn-primary" name="btnLogin" id="btnLogin" onclick="authenticate()">Ingresar</button>
             </form>
-            <form class="form" id="post-signup-form">
+            <form class="form post" id="post-signup-form">
                 <h3>Ingrese sus datos</h3>
                 <div class="label sex">
                     <label for="man women">Sexo de nacimiento:</label>
