@@ -1,10 +1,3 @@
-const header = document.querySelector('header')
-const next = document.querySelector('#next')
-const loginDis = document.querySelector('#login-form')
-const regis = document.querySelector('#regis')
-const ing = document.querySelector('#ing')
-const si = document.getElementById("si")
-const no = document.getElementById("no")
 // post-signUpForm
 function handleCheckboxChange(checkbox) {
     var checkboxes = document.getElementsByClassName("option");

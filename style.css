@@ -64,6 +64,9 @@ section{
     20%{
         opacity: 0;
     }
+    30%{
+        opacity: 0;
+    }
     50%{
         opacity: 1;
     }
