@@ -33,11 +33,22 @@ section{
     position: absolute;
     animation: ups 1s ease-in forwards;
 }
-.slide{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* form-fatigue */
+.fat{
+    animation: lef 1s ease-in-out forwards;
 }
+@keyframes lef{
+    0%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* form-fatigue */
 .content{
     display: flex;
     justify-content: center;
@@ -74,6 +85,26 @@ section{
         opacity: 1;
     }
 }
+.opacity2{
+    animation: ops 1s ease-in forwards;
+}
+@keyframes ops{
+    0%{
+        opacity: 1;
+    }
+    20%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 #login-form{
     margin-top: 20px;
     /* display: none; */
@@ -94,4 +125,26 @@ section{
     100%{
         scale: 0;
     }
+}
+#fatigue{
+    gap: 3rem;
+}
+.backNext{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.fati{
+ display: none;
+}
+.level{
+    display: flex;
+    width: 90%;
+    gap: 2rem;
+}
+.levelr{
+    font-size: 2rem;
+}
+.levelf input{
+    height: 1rem;
 }

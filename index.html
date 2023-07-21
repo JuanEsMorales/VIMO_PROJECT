@@ -12,9 +12,10 @@
     <header class="" id="head">
         <img src="vimo.PNG" alt="Logo VIMO">
     </header>
-    <section>
+    <section class="">
         <div class="content">
             <form class="form" id="login-form">
+                <input type="text" name="user" id="user" placeholder="Usuario" class="form-control">
                 <input type="text" name="dni" id="dni" placeholder="DNI" class="form-control">
                 <input type="password" name="contra" id="pass" placeholder="Clave" class="form-control">
                 <button class="btn btn-primary" name="btnLogin" id="btnLogin" onclick="authenticate()">Ingresar</button>
@@ -24,9 +25,9 @@
                 <div class="label sex">
                     <label for="man women">Sexo de nacimiento:</label>
                     <label for="man">Hombre</label>
-                    <input type="checkbox" name="man" id="man" class="option" value="1" onchange="handleCheckboxChange(this)">
+                    <input type="checkbox" name="man" id="man" class="option" value="1" onchange="handleCheckboxChange(this)" required>
                     <label for="women">Mujer</label>
-                    <input type="checkbox" name="women" id="women" class="option" value="2" onchange="handleCheckboxChange(this)">
+                    <input type="checkbox" name="women" id="women" class="option" value="2" onchange="handleCheckboxChange(this)" required>
                 </div>
                 <div class="label">
                     <label for="weight">Peso:</label>
@@ -45,11 +46,24 @@
                 <div class="label"
                 <label for="si no">¿Sufre de presión arterial alta?</label>
                 <label for="si">Si</label>
-                <input type="checkbox" name="si" id="si" class="options" onchange="handleCheckboxChange2(this)">
+                <input type="checkbox" name="si" id="si" class="options" onchange="handleCheckboxChange2(this)" required>
                 <label for="no">No</label>
-                <input type="checkbox" name="no" id="no" class="options" onchange="handleCheckboxChange2(this)">
+                <input type="checkbox" name="no" id="no" class="options" onchange="handleCheckboxChange2(this)" required>
                 </div>
                 <button type="submit" class="btn btn-primary" onclick="validarCheckboxes()">Siguiente</button>
+            </form>
+            <form class="form fati" id="fatigue">
+                <h1 id="welcome"></h1>
+                <h3>¿Cual es tu nivel de fatiga hoy?</h3>
+                <div class="level">
+                <label for="level" class="levelr">-</label>
+                <input type="range" name="level" class="form-control levelf" min="1" max="10">
+                <label for="level" class="levelr">+</label>
+                </div>
+                <div class="backNext">
+                    <button class="btn btn-primary">Salir</button>
+                    <button class="btn btn-primary">Siguiente</button>
+                </div>
             </form>
         </div>
     </section>
