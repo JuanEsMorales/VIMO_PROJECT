@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    background-color: black;
+}
+section{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.maze{
+    margin-top: 4rem;
+    width: 705px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.maze img{
+    width: 705px;
+    height: 400px;
+    position: absolute;
+    display: none;
+}
+.line{
+    width: 1rem;
+    height: 90%;
+    border: 6px solid gray;
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+}
+.l2{
+    right: 0;
+}
+.l3{
+    width: 40%;
+    height: 1rem;
+    bottom: 0;
+}
+.l4{
+    width: 40%;
+    height: 1rem;
+    right: 0;
+    bottom: 0;
+}
+.l5{
+    width: 40%;
+    height: 1rem;
+    top: 0;
+}
+.l6{
+    width: 40%;
+    height: 1rem;
+    right: 0;
+    top: 0;
+}
+.l7{
+    width: 1rem;
+    height: 78%;
+    top: 0;
+    left: 20%;
+}
+.l8{
+    width: 40.2%;
+    height: 1rem;
+    left: 20%;
+    top: 60%;
+}
+.l9{
+    width: 1rem;
+    height: 20%;
+    left: 58%;
+    top: 0;
+}
+.l10{
+    width: 43%;
+    height: 1rem;
+    left: 38%;
+    top: 19%;
+}
+.l11{
+    width: 41%;
+    height: 1rem;
+    left: 38%;
+    top: 75%;
+}
+.l12{
+    width: 1rem;
+    height: 20%;
+    left: 58%;
+    top: 38%;
+}
+.l13{
+    width: 1rem;
+    height: 20%;
+    left: 38%;
+    top: 20%;
+}
+.l14{
+    width: 21%;
+    height: 1rem;
+    left: 58%;
+    top: 38%;
+}
+.l15{
+    width: 1rem;
+    height: 40%;
+    left: 76.7%;
+    top: 38%;
+}
