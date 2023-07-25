@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colisión con Bounding Box</title>
+    <style>
+        /* Estilos del cuerpo, .boxA y .boxB */
+        .box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+
+        .boxA {
+            background-color: red;
+            cursor: move;
+        }
+
+        .boxB {
+            background-color: blue;
+            top: 100px;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box boxA"></div>
+    <div class="box boxB"></div>
+
+<script>
+const boxA = document.querySelector(".boxA");
+const boxB = document.querySelector(".boxB");
+
+let isDragging = false;
+let offsetX, offsetY;
+
+boxA.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  offsetX = e.clientX - boxA.getBoundingClientRect().left;
+  offsetY = e.clientY - boxA.getBoundingClientRect().top;
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    const x = e.clientX - offsetX;
+    const y = e.clientY - offsetY;
+
+    boxA.style.left = `${x}px`;
+    boxA.style.top = `${y}px`;
+
+    // Comprobar colisión con boxB usando Bounding Box
+    const rectA = boxA.getBoundingClientRect();
+    const rectB = boxB.getBoundingClientRect();
+
+    if (
+      rectA.left < rectB.right &&
+      rectA.right > rectB.left &&
+      rectA.top < rectB.bottom &&
+      rectA.bottom > rectB.top
+    ) {
+      // Colisión detectada, detener movimiento
+      boxA.style.backgroundColor = "yellow";
+    } else {
+      // No hay colisión
+      boxA.style.backgroundColor = "red";
+    }
+  }
+});
+    </script>
+</body>
+</html>
