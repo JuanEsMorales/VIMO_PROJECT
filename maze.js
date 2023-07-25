@@ -18,12 +18,13 @@ function secondsCont() {
 
 // mobile
 const lines = document.querySelectorAll(".line");
-const maze = document.querySelector(".maze");
+const maze = document.querySelector(".container");
 const object = document.querySelector(".object");
 const win = document.querySelector(".win");
 
 let isDragging = false;
 let offsetX, offsetY;
+let allowMovement = true; 
 
 function getPosition(e) {
   if (e.touches) {
@@ -75,7 +76,7 @@ document.addEventListener("mouseup", () => {
 });
 
 maze.addEventListener("mousemove", (e) => {
-  if (isDragging) {
+  if (isDragging && allowMovement) {
     const x = e.clientX - maze.getBoundingClientRect().left;
     const y = e.clientY - maze.getBoundingClientRect().top;
 
@@ -85,8 +86,10 @@ maze.addEventListener("mousemove", (e) => {
     const validX = Math.min(maxX, Math.max(0, x - offsetX));
     const validY = Math.min(maxY, Math.max(0, y - offsetY));
 
-    object.style.left = validX + "px";
-    object.style.top = validY + "px";
+    if (allowMovement) {
+      object.style.left = validX + "px";
+      object.style.top = validY + "px";
+    }
 
     const rectA = object.getBoundingClientRect();
     const rectB = win.getBoundingClientRect();
@@ -99,9 +102,17 @@ maze.addEventListener("mousemove", (e) => {
     ) {
       // Colisión detectada, detener movimiento
       object.style.backgroundColor = "yellow";
+      allowMovement = false;
+      setTimeout(()=>{
+      isDragging = true;
+      object.style.bottom = 50+"px";
+      object.style.left = 48+"%";
+      allowMovement = true;
+      }, 100);
     } else {
       // No hay colisión
       object.style.backgroundColor = "blue";
+      allowMovement = true; 
     }
   }
 
