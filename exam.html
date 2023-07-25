@@ -34,6 +34,7 @@ const boxB = document.querySelector(".boxB");
 
 let isDragging = false;
 let offsetX, offsetY;
+let allowMovement = true; // Variable para permitir o detener el movimiento
 
 boxA.addEventListener("mousedown", (e) => {
   isDragging = true;
@@ -46,12 +47,9 @@ document.addEventListener("mouseup", () => {
 });
 
 document.addEventListener("mousemove", (e) => {
-  if (isDragging) {
+  if (isDragging && allowMovement) {
     const x = e.clientX - offsetX;
     const y = e.clientY - offsetY;
-
-    boxA.style.left = `${x}px`;
-    boxA.style.top = `${y}px`;
 
     // Comprobar colisión con boxB usando Bounding Box
     const rectA = boxA.getBoundingClientRect();
@@ -65,9 +63,17 @@ document.addEventListener("mousemove", (e) => {
     ) {
       // Colisión detectada, detener movimiento
       boxA.style.backgroundColor = "yellow";
+      allowMovement = false;
     } else {
       // No hay colisión
       boxA.style.backgroundColor = "red";
+      allowMovement = true; // Restaurar la posibilidad de movimiento si no hay colisión
+    }
+
+    // Actualizar la posición solo si el movimiento está permitido
+    if (allowMovement) {
+      boxA.style.left = `${x}px`;
+      boxA.style.top = `${y}px`;
     }
   }
 });

@@ -17,8 +17,10 @@ function secondsCont() {
 // Object inside the maze
 
 // mobile
+const lines = document.querySelectorAll(".line");
 const maze = document.querySelector(".maze");
 const object = document.querySelector(".object");
+const win = document.querySelector(".win");
 
 let isDragging = false;
 let offsetX, offsetY;
@@ -85,10 +87,26 @@ maze.addEventListener("mousemove", (e) => {
 
     object.style.left = validX + "px";
     object.style.top = validY + "px";
+
+    const rectA = object.getBoundingClientRect();
+    const rectB = win.getBoundingClientRect();
+
+    if (
+      rectA.left < rectB.right &&
+      rectA.right > rectB.left &&
+      rectA.top < rectB.bottom &&
+      rectA.bottom > rectB.top
+    ) {
+      // Colisión detectada, detener movimiento
+      object.style.backgroundColor = "yellow";
+    } else {
+      // No hay colisión
+      object.style.backgroundColor = "blue";
+    }
   }
 
 });
-const lines = document.querySelectorAll(".line");
+
 
 
 

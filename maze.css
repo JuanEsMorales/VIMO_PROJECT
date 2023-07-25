@@ -36,12 +36,11 @@ section{
     position: relative;
 }
 .win{
-    width: 40px;
-    height: 40px;
+    width: 1rem;
+    height: 95%;
     background-color: red;
     position: absolute;
-    top: 10%;
-    left: 48%;
+    right: 0;
 }
 .line{
     width: 1rem;
@@ -131,8 +130,8 @@ section{
     top: 38%;
 }
 .object{
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     background-color: rgba(23,97,204,1);
     position: absolute;
     bottom: 0;
