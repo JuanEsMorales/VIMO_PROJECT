@@ -3,7 +3,22 @@
     margin: 0;
 }
 header{
+    width: 100vw;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
     background-color: black;
+    position: relative;
+}
+.seconds{
+    color: white;
+    font-size: 7rem;
+}
+#velo{
+    width: 150px;
+    height: 150px;
 }
 section{
     width: 100vw;
@@ -13,24 +28,26 @@ section{
     position: relative;
 }
 .maze{
-    margin-top: 4rem;
+    margin-top: 1rem;
     width: 705px;
     height: 400px;
     display: flex;
     align-items: center;
     position: relative;
 }
-.maze img{
-    width: 705px;
-    height: 400px;
+.win{
+    width: 40px;
+    height: 40px;
+    background-color: red;
     position: absolute;
-    display: none;
+    top: 10%;
+    left: 48%;
 }
 .line{
     width: 1rem;
-    height: 90%;
-    border: 6px solid gray;
-    background-color: black;
+    height: 95%;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,56,56,1) 100%);
     position: absolute;
     z-index: 2;
 }
@@ -91,9 +108,9 @@ section{
 }
 .l12{
     width: 1rem;
-    height: 20%;
+    height: 24%;
     left: 58%;
-    top: 38%;
+    top: 40%;
 }
 .l13{
     width: 1rem;
@@ -109,7 +126,15 @@ section{
 }
 .l15{
     width: 1rem;
-    height: 40%;
+    height: 41%;
     left: 76.7%;
     top: 38%;
+}
+.object{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(23,97,204,1);
+    position: absolute;
+    bottom: 0;
+    left: 48%;
 }
