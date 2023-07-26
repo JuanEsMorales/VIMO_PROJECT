@@ -2,14 +2,14 @@ let seconds = 10;
 let temp = setInterval(secondsCont,1000);
 function secondsCont() {
     let txtSeconds;
-    if (seconds < 10) {
+    if (seconds < 10 && seconds > -1) {
         txtSeconds = `0${seconds}`
-    } else {
-        txtSeconds = seconds;
+    } else{
+      txtSeconds = seconds;
     }
     document.getElementById("seconds").innerHTML = txtSeconds;
     seconds--;
-    if (seconds == -1) {
+    if (seconds == -61) {
         clearInterval(temp);
     }
 }
@@ -47,7 +47,7 @@ document.addEventListener("touchend", () => {
 });
 
 maze.addEventListener("touchmove", (e) => {
-  if (isDragging) {
+  if (isDragging && allowMovement) {
     e.preventDefault(); // Evita el comportamiento predeterminado del evento táctil
     const pos = getPosition(e);
     const x = pos.x - maze.getBoundingClientRect().left;
@@ -60,6 +60,8 @@ maze.addEventListener("touchmove", (e) => {
 
     object.style.left = validX + "px";
     object.style.top = validY + "px";
+
+    
   }
 });
 // mobile
@@ -111,7 +113,6 @@ maze.addEventListener("mousemove", (e) => {
       }, 100);
     } else {
       // No hay colisión
-      object.style.backgroundColor = "blue";
       allowMovement = true; 
     }
   }

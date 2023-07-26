@@ -1,64 +1,92 @@
-const objeto = document.querySelector(".objeto");
-const linea = document.querySelector(".linea");
-const box = document.querySelector(".box");
+// Definir el laberinto (1 representa los caminos permitidos, 0 representa las paredes)
+const laberinto = [
+  [1, 1, 1, 1, 1],
+  [1, 0, 1, 0, 1],
+  [1, 1, 1, 1, 1],
+  [1, 0, 1, 0, 1],
+  [1, 1, 1, 1, 1],
+];
 
-let isDragging = false;
-let offsetX, offsetY;
-let isColliding = false;
+// Obtener el contexto del canvas y definir variables para el objeto móvil
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const objetoMovible = { x: 50, y: 50, width: 20, height: 20, isDragging: false };
 
-objeto.addEventListener("mousedown", (e) => {
-  const pos = getPosition(e);
-  isDragging = true;
-  offsetX = pos.x - objeto.getBoundingClientRect().left;
-  offsetY = pos.y - objeto.getBoundingClientRect().top;
+// Función para dibujar el laberinto y el objeto móvil
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Dibujar el laberinto
+  for (let row = 0; row < laberinto.length; row++) {
+    for (let col = 0; col < laberinto[row].length; col++) {
+      if (laberinto[row][col] === 1) {
+        ctx.fillStyle = "white";
+      } else {
+        ctx.fillStyle = "black";
+      }
+      ctx.fillRect(col * 40, row * 40, 40, 40);
+    }
+  }
+
+  // Dibujar el objeto móvil
+  ctx.fillStyle = "blue";
+  ctx.fillRect(objetoMovible.x, objetoMovible.y, objetoMovible.width, objetoMovible.height);
+}
+
+// Evento para detectar cuando se presiona el clic del mouse
+canvas.addEventListener("mousedown", (event) => {
+  const rect = canvas.getBoundingClientRect();
+  const mouseX = event.clientX - rect.left;
+  const mouseY = event.clientY - rect.top;
+
+  // Verifica si el clic se realizó sobre el objeto movible
+  if (
+    mouseX >= objetoMovible.x &&
+    mouseX <= objetoMovible.x + objetoMovible.width &&
+    mouseY >= objetoMovible.y &&
+    mouseY <= objetoMovible.y + objetoMovible.height
+  ) {
+    objetoMovible.isDragging = true;
+  }
 });
 
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-  isColliding = false;
+// Evento para detectar cuando se suelta el clic del mouse
+canvas.addEventListener("mouseup", () => {
+  objetoMovible.isDragging = false;
 });
 
-box.addEventListener("mousemove", (e) => {
-  if (isDragging) {
-    const pos = getPosition(e);
-    const x = pos.x - box.getBoundingClientRect().left;
-    const y = pos.y - box.getBoundingClientRect().top;
+// Evento para mover el objeto al mover el cursor con el clic presionado
+canvas.addEventListener("mousemove", (event) => {
+  if (objetoMovible.isDragging) {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
 
-    // Verificar colisión con la línea
-    const rectObjeto = objeto.getBoundingClientRect();
-    const rectLinea = linea.getBoundingClientRect();
+    // Verificar si el próximo movimiento mantendrá al objeto dentro del laberinto
+    const nextX = mouseX - objetoMovible.width / 2;
+    const nextY = mouseY - objetoMovible.height / 2;
+
+    const row = Math.floor(nextY / 40);
+    const col = Math.floor(nextX / 40);
 
     if (
-      rectObjeto.left < rectLinea.right &&
-      rectObjeto.right > rectLinea.left &&
-      rectObjeto.top < rectLinea.bottom &&
-      rectObjeto.bottom > rectLinea.top
+      row >= 0 &&
+      row < laberinto.length &&
+      col >= 0 &&
+      col < laberinto[0].length &&
+      laberinto[row][col] === 1
     ) {
-      isColliding = true;
-      objeto.style.backgroundColor = "red"; // Cambiar color para indicar colisión
-    } else {
-      isColliding = false;
-      objeto.style.backgroundColor = "brown"; // Volver al color original si no está colisionando
-    }
-
-    // Si está colisionando, impedir que el objeto se mueva
-    if (isColliding) {
-      objeto.style.left = (rectLinea.left - box.getBoundingClientRect().left - objeto.offsetWidth) + "px";
-      objeto.style.top = (rectLinea.top - box.getBoundingClientRect().top - objeto.offsetHeight) + "px";
-    } else {
-      // Si no está colisionando, actualizar la posición normalmente
-      const validX = Math.min(box.offsetWidth - objeto.offsetWidth, Math.max(0, x - offsetX));
-      const validY = Math.min(box.offsetHeight - objeto.offsetHeight, Math.max(0, y - offsetY));
-      objeto.style.left = validX + "px";
-      objeto.style.top = validY + "px";
+      objetoMovible.x = nextX;
+      objetoMovible.y = nextY;
     }
   }
 });
 
-function getPosition(e) {
-  if (e.touches) {
-    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-  } else {
-    return { x: e.clientX, y: e.clientY };
-  }
+// Función para actualizar y dibujar continuamente el laberinto y el objeto móvil
+function gameLoop() {
+  draw();
+  requestAnimationFrame(gameLoop);
 }
+
+// Iniciar el bucle del juego
+gameLoop();

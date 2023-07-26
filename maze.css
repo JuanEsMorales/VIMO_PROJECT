@@ -29,7 +29,7 @@ section{
 }
 .maze{
     margin-top: 1rem;
-    width: 53%;
+    width: 54%;
     height: 400px;
     display: flex;
     align-items: center;
@@ -37,7 +37,7 @@ section{
 }
 .container{
     margin-left: 1rem;
-    width: 95.6%;
+    width: 95.7%;
     height: 23rem;
     display: flex;
     align-items: center;
@@ -146,4 +146,26 @@ section{
     position: absolute;
     bottom: 0;
     left: 48%;
+}
+@media (max-width: 600px){
+    header{
+        height: 60%;
+    }
+    section{
+        height: 40%;
+    }
+    #velo{
+        width: 80px;
+        height: 80px;
+    }
+    #LogoVimo{
+        width: 150px;
+        height: 50px;
+    }
+    #seconds{
+        font-size: 50px;
+    }
+    .maze{
+        width: 100%;
+    }
 }

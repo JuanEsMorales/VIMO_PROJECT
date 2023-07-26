@@ -1,82 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colisión con Bounding Box</title>
-    <style>
-        /* Estilos del cuerpo, .boxA y .boxB */
-        .box {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-        }
-
-        .boxA {
-            background-color: red;
-            cursor: move;
-        }
-
-        .boxB {
-            background-color: blue;
-            top: 100px;
-            left: 150px;
-        }
-    </style>
+    <title>Laberinto con Objeto Móvil</title>
 </head>
 <body>
-    <div class="box boxA"></div>
-    <div class="box boxB"></div>
-
-<script>
-const boxA = document.querySelector(".boxA");
-const boxB = document.querySelector(".boxB");
-
-let isDragging = false;
-let offsetX, offsetY;
-let allowMovement = true; // Variable para permitir o detener el movimiento
-
-boxA.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  offsetX = e.clientX - boxA.getBoundingClientRect().left;
-  offsetY = e.clientY - boxA.getBoundingClientRect().top;
-});
-
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-});
-
-document.addEventListener("mousemove", (e) => {
-  if (isDragging && allowMovement) {
-    const x = e.clientX - offsetX;
-    const y = e.clientY - offsetY;
-
-    // Comprobar colisión con boxB usando Bounding Box
-    const rectA = boxA.getBoundingClientRect();
-    const rectB = boxB.getBoundingClientRect();
-
-    if (
-      rectA.left < rectB.right &&
-      rectA.right > rectB.left &&
-      rectA.top < rectB.bottom &&
-      rectA.bottom > rectB.top
-    ) {
-      // Colisión detectada, detener movimiento
-      boxA.style.backgroundColor = "yellow";
-      allowMovement = false;
-    } else {
-      // No hay colisión
-      boxA.style.backgroundColor = "red";
-      allowMovement = true; // Restaurar la posibilidad de movimiento si no hay colisión
-    }
-
-    // Actualizar la posición solo si el movimiento está permitido
-    if (allowMovement) {
-      boxA.style.left = `${x}px`;
-      boxA.style.top = `${y}px`;
-    }
-  }
-});
-    </script>
+    <canvas id="canvas" width="400" height="400" style="border: 1px solid black;"></canvas>
+    <script src="script.js"></script>
 </body>
 </html>
