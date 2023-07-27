@@ -44,14 +44,6 @@ section{
     position: relative;
     z-index: 3;
 }
-.f1{
-    width: 1rem;
-    height: 41%;
-    position: absolute;
-    background-color: brown;
-    top: 38%;
-    right: 21%;
-}
 .win{
     position: absolute;
     width: 100px;
@@ -62,6 +54,77 @@ section{
 #win{
     width: 100px;
     height: 50px;
+}
+.f1{
+    width: 1rem;
+    height: 41%;
+    position: absolute;
+    top: 38%;
+    right: 21%;
+}
+.f2{
+    width: 41%;
+    height: 1rem;
+    position: absolute;
+    background-color: brown;
+    top: 75%;
+    right: 21%;
+}
+.f3{
+    width: 1rem;
+    height: 20%;
+    position: absolute;
+    background-color: brown;
+    top: 0%;
+    right: 40%;
+}
+.f4{
+    width: 40%;
+    height: 1rem;
+    position: absolute;
+    background-color: brown;
+    top: 60%;
+    right: 40%;
+}
+.f5{
+    width: 1rem;
+    height: 78%;
+    background-color: brown;
+    position: absolute;
+    top: 0;
+    left: 20%;
+}
+.f6{
+    width: 20%;
+    height: 1rem;
+    position: absolute;
+    background-color: brown;
+    top: 38%;
+    right: 21%;
+}
+.f7{
+    width: 1rem;
+    height: 26%;
+    position: absolute;
+    background-color: brown;
+    top: 38%;
+    right: 40%;
+}
+.f8{
+    width: 43%;
+    height: 1rem;
+    position: absolute;
+    background-color: brown;
+    top: 19%;
+    right: 19%;
+}
+.f9{
+    width: 1rem;
+    height: 21%;
+    position: absolute;
+    background-color: brown;
+    top: 19%;
+    left: 38%;
 }
 .line{
     width: 1rem;
