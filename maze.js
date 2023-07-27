@@ -20,7 +20,7 @@ function secondsCont() {
 const lines = document.querySelectorAll(".line");
 const maze = document.querySelector(".container");
 const object = document.querySelector(".object");
-const win = document.querySelector(".win");
+const win = document.querySelector(".f1");
 
 let isDragging = false;
 let offsetX, offsetY;
@@ -103,14 +103,12 @@ maze.addEventListener("mousemove", (e) => {
       rectA.bottom > rectB.top
     ) {
       // Colisión detectada, detener movimiento
-      object.style.backgroundColor = "yellow";
       allowMovement = false;
+      isDragging = false;
       setTimeout(()=>{
-      isDragging = true;
-      object.style.bottom = 50+"px";
-      object.style.left = 48+"%";
+      object.style.left = 5+"%";
       allowMovement = true;
-      }, 100);
+      }, 50);
     } else {
       // No hay colisión
       allowMovement = true; 
