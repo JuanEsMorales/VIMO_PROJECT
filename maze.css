@@ -2,6 +2,107 @@
     padding: 0;
     margin: 0;
 }
+.principal{
+    width: 100vw;
+    height: 100vh;
+    background: rgb(251,251,251);
+    background: linear-gradient(0deg, rgba(251,251,251,1) 0%, rgba(29,184,253,1) 50%, rgba(23,97,204,1) 87%);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    color: white;
+    animation: disappear 1s 4s forwards;
+}
+@keyframes disappear{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.displayN{
+    display: none;
+}
+#LogoVimo1{
+    animation: down .5s ease-out forwards;
+    opacity: 0;
+}
+@keyframes down{
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    20%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    30%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.principal p{
+    opacity: 0;
+    font-size: 50px;
+    animation: downp .5s ease-out 0.5s forwards;
+}
+@keyframes downp{
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    20%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    30%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.counter{
+    opacity: 0;
+    font-size: 200px;
+    font-weight: 300;
+    text-shadow: 0px 0px 5px rgba(23,97,204,1);
+    animation: downc .5s ease-out 1s forwards;
+}
+@keyframes downc{
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    20%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    30%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
 header{
     width: 100vw;
     height: 125px;
@@ -9,8 +110,11 @@ header{
     justify-content: center;
     align-items: center;
     justify-content: space-around;
-    background-color: black;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(34,94,195,1) 100%);
     position: relative;
+    user-select: none;
+    /* display: none; */
 }
 .seconds{
     color: white;
@@ -26,6 +130,7 @@ section{
     justify-content: center;
     align-items: center;
     position: relative;
+    /* display: none; */
 }
 .maze{
     margin-top: 1rem;
@@ -54,6 +159,7 @@ section{
 #win{
     width: 100px;
     height: 50px;
+    user-select: none;
 }
 .f1{
     width: 1rem;
@@ -216,6 +322,7 @@ section{
 .object{
     width: 25px;
     height: 25px;
+    border-radius: 50%;
     background-color: rgba(23,97,204,1);
     position: absolute;
     bottom: 0;
@@ -224,10 +331,10 @@ section{
 @media (max-width: 600px){
     header{
         display: grid;
-        grid-template-columns: 20px 10px;
-        grid-template-rows: 104px auto;
-        width: 60%;
-        height: 200px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr auto;
+        width: 100%;
+        height: 120px;
     }
     #velo{
         grid-column: 1/2;
@@ -248,7 +355,7 @@ section{
         font-size: 50px;
     }
     section{
-        width: 50%;
+        width: 100%;
     }
     .maze{
         width: 100%;

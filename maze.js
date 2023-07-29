@@ -1,19 +1,40 @@
-let seconds = 10;
-let temp = setInterval(secondsCont,1000);
-function secondsCont() {
-    let txtSeconds;
-    if (seconds < 10 && seconds > -1) {
-        txtSeconds = `0${seconds}`
-    } else{
-      txtSeconds = seconds;
-    }
-    document.getElementById("seconds").innerHTML = txtSeconds;
-    seconds--;
-    if (seconds == -61) {
-        clearInterval(temp);
-    }
+let count = 3;
+let seconds = 0;
+let tempF = setInterval(countFirst,1000);
+function countFirst() {
+  let txtCount;
+  txtCount = count;
+  document.getElementById("count").innerHTML = txtCount;
+  count--;
+  if (count < 0) {
+    clearInterval(tempF)
+  }
 }
+setTimeout(()=>{
+  const dis = document.querySelector(".principal");
+  const sec = document.querySelector("section");
+  const head = document.querySelector("header")
+  dis.classList.add("displayN");
+  sec.classList.remove("displayN");
+  head.classList.remove("displayN");
+}, 5100)
+setTimeout(()=>{
+  let temp = setInterval(secondsCont,1000);
+  function secondsCont() {
+      let txtSeconds;
+      if (seconds < 10) {
+          txtSeconds = `0${seconds}`
+      } else{
+        txtSeconds = seconds;
+      }
+      document.getElementById("seconds").innerHTML = txtSeconds;
+      seconds++;
+      if (seconds == 61) {
+          clearInterval(temp);
+      }
+  }
 
+}, 6000);
 // Object inside the maze
 
 // mobile
@@ -31,6 +52,9 @@ const fail6 = document.querySelector(".f7");
 const fail7 = document.querySelector(".f8");
 const fail8 = document.querySelector(".f9");
 // fails
+// winner
+const winner = document.querySelector(".win");
+// winner
 
 let isDragging = false;
 let offsetX, offsetY;
@@ -68,8 +92,175 @@ maze.addEventListener("touchmove", (e) => {
     const validX = Math.min(maxX, Math.max(0, x - offsetX));
     const validY = Math.min(maxY, Math.max(0, y - offsetY));
 
-    object.style.left = validX + "px";
-    object.style.top = validY + "px";
+    if (allowMovement) {
+      object.style.left = validX + "px";
+      object.style.top = validY + "px";
+    }
+
+    const rectA = object.getBoundingClientRect();
+    const rectB = win.getBoundingClientRect();
+    const rectC = fail.getBoundingClientRect();
+    const rectD = fail2.getBoundingClientRect();
+    const rectF = fail3.getBoundingClientRect();
+    const rectG = fail4.getBoundingClientRect();
+    const rectH = fail5.getBoundingClientRect();
+    const rectI = fail6.getBoundingClientRect();
+    const rectJ = fail7.getBoundingClientRect();
+    const rectK = fail8.getBoundingClientRect();
+    // Collision
+    if (
+      rectA.left < rectB.right &&
+      rectA.right > rectB.left &&
+      rectA.top < rectB.bottom &&
+      rectA.bottom > rectB.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    if (
+      rectA.left < rectC.right &&
+      rectA.right > rectC.left &&
+      rectA.top < rectC.bottom &&
+      rectA.bottom > rectC.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    if (
+      rectA.left < rectD.right &&
+      rectA.right > rectD.left &&
+      rectA.top < rectD.bottom &&
+      rectA.bottom > rectD.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    if (
+      rectA.left < rectF.right &&
+      rectA.right > rectF.left &&
+      rectA.top < rectF.bottom &&
+      rectA.bottom > rectF.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    if (
+      rectA.left < rectG.right &&
+      rectA.right > rectG.left &&
+      rectA.top < rectG.bottom &&
+      rectA.bottom > rectG.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    if (
+      rectA.left < rectH.right &&
+      rectA.right > rectH.left &&
+      rectA.top < rectH.bottom &&
+      rectA.bottom > rectH.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    if (
+      rectA.left < rectI.right &&
+      rectA.right > rectI.left &&
+      rectA.top < rectI.bottom &&
+      rectA.bottom > rectI.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    if (
+      rectA.left < rectJ.right &&
+      rectA.right > rectJ.left &&
+      rectA.top < rectJ.bottom &&
+      rectA.bottom > rectJ.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    if (
+      rectA.left < rectK.right &&
+      rectA.right > rectK.left &&
+      rectA.top < rectK.bottom &&
+      rectA.bottom > rectK.top 
+    ) {
+      // Colisión detectada, detener movimiento
+      allowMovement = false;
+      isDragging = false;
+      setTimeout(()=>{
+      object.style.left = 5+"%";
+      allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
 
     
   }
