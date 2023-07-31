@@ -129,8 +129,8 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     position: relative;
-    /* display: none; */
 }
 .maze{
     margin-top: 1rem;
@@ -327,6 +327,58 @@ section{
     position: absolute;
     bottom: 0;
     left: 48%;
+}
+.message{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 550;
+}
+.anim{
+    scale: .5;
+    opacity: 0;
+    animation: endP 1s ease-in-out forwards;
+}
+.arrow{
+    transform: translateY(10px);
+    animation: arrow 1.2s ease-in-out infinite forwards;
+}
+.opacity{
+    animation: opacity 1s ease-out forwards;
+}
+@keyframes endP{
+    0%{
+        scale: .5;
+        opacity: 0;
+    }
+    30%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+    }
+}
+@keyframes arrow{
+    0%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(10px);
+    }
+}
+@keyframes opacity{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 @media (max-width: 600px){
     header{

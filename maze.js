@@ -34,7 +34,7 @@ setTimeout(()=>{
       }
   }
 
-}, 6000);
+}, 5000);
 // Object inside the maze
 
 // mobile
@@ -52,9 +52,6 @@ const fail6 = document.querySelector(".f7");
 const fail7 = document.querySelector(".f8");
 const fail8 = document.querySelector(".f9");
 // fails
-// winner
-const winner = document.querySelector(".win");
-// winner
 
 let isDragging = false;
 let offsetX, offsetY;
@@ -113,12 +110,12 @@ maze.addEventListener("touchmove", (e) => {
       rectA.right > rectB.left &&
       rectA.top < rectB.bottom &&
       rectA.bottom > rectB.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
-      isDragging = false;
-      setTimeout(()=>{
-      object.style.left = 5+"%";
+      ) {
+        // Colisión detectada, detener movimiento
+        allowMovement = false;
+        isDragging = false;
+        setTimeout(()=>{
+          object.style.left = 5+"%";
       allowMovement = true;
       }, 50);
     } else {
@@ -135,7 +132,7 @@ maze.addEventListener("touchmove", (e) => {
       allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
-      object.style.left = 5+"%";
+        object.style.left = 5+"%";
       allowMovement = true;
       }, 50);
     } else {
@@ -152,9 +149,9 @@ maze.addEventListener("touchmove", (e) => {
       allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
-      object.style.left = 5+"%";
+        object.style.left = 5+"%";
       allowMovement = true;
-      }, 50);
+    }, 50);
     } else {
       // No hay colisión
       allowMovement = true; 
@@ -164,7 +161,7 @@ maze.addEventListener("touchmove", (e) => {
       rectA.right > rectF.left &&
       rectA.top < rectF.bottom &&
       rectA.bottom > rectF.top 
-    ) {
+      ) {
       // Colisión detectada, detener movimiento
       allowMovement = false;
       isDragging = false;
@@ -181,30 +178,30 @@ maze.addEventListener("touchmove", (e) => {
       rectA.right > rectG.left &&
       rectA.top < rectG.bottom &&
       rectA.bottom > rectG.top 
-    ) {
-      // Colisión detectada, detener movimiento
+      ) {
+        // Colisión detectada, detener movimiento
       allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
       object.style.left = 5+"%";
       allowMovement = true;
-      }, 50);
-    } else {
-      // No hay colisión
-      allowMovement = true; 
-    }
-    if (
+    }, 50);
+  } else {
+    // No hay colisión
+    allowMovement = true; 
+  }
+  if (
       rectA.left < rectH.right &&
       rectA.right > rectH.left &&
       rectA.top < rectH.bottom &&
       rectA.bottom > rectH.top 
-    ) {
-      // Colisión detectada, detener movimiento
+      ) {
+        // Colisión detectada, detener movimiento
       allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
-      object.style.left = 5+"%";
-      allowMovement = true;
+        object.style.left = 5+"%";
+        allowMovement = true;
       }, 50);
     } else {
       // No hay colisión
@@ -222,10 +219,10 @@ maze.addEventListener("touchmove", (e) => {
       setTimeout(()=>{
       object.style.left = 5+"%";
       allowMovement = true;
-      }, 50);
-    } else {
-      // No hay colisión
-      allowMovement = true; 
+    }, 50);
+  } else {
+    // No hay colisión
+    allowMovement = true; 
     }
     if (
       rectA.left < rectJ.right &&
@@ -237,8 +234,8 @@ maze.addEventListener("touchmove", (e) => {
       allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
-      object.style.left = 5+"%";
-      allowMovement = true;
+        object.style.left = 5+"%";
+        allowMovement = true;
       }, 50);
     } else {
       // No hay colisión
@@ -249,21 +246,21 @@ maze.addEventListener("touchmove", (e) => {
       rectA.right > rectK.left &&
       rectA.top < rectK.bottom &&
       rectA.bottom > rectK.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
+      ) {
+        // Colisión detectada, detener movimiento
+        allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
       object.style.left = 5+"%";
       allowMovement = true;
-      }, 50);
-    } else {
-      // No hay colisión
-      allowMovement = true; 
-    }
-
-    
+    }, 50);
+  } else {
+    // No hay colisión
+    allowMovement = true; 
   }
+  
+  
+}
 });
 // mobile
 // web
@@ -280,20 +277,21 @@ document.addEventListener("mouseup", () => {
 
 maze.addEventListener("mousemove", (e) => {
   if (isDragging && allowMovement) {
+
     const x = e.clientX - maze.getBoundingClientRect().left;
     const y = e.clientY - maze.getBoundingClientRect().top;
-
+    
     // Verificar que el objeto no se salga del laberinto
     const maxX = maze.offsetWidth - object.offsetWidth;
     const maxY = maze.offsetHeight - object.offsetHeight;
     const validX = Math.min(maxX, Math.max(0, x - offsetX));
     const validY = Math.min(maxY, Math.max(0, y - offsetY));
-
+    
     if (allowMovement) {
       object.style.left = validX + "px";
       object.style.top = validY + "px";
     }
-
+    
     const rectA = object.getBoundingClientRect();
     const rectB = win.getBoundingClientRect();
     const rectC = fail.getBoundingClientRect();
@@ -310,32 +308,32 @@ maze.addEventListener("mousemove", (e) => {
       rectA.right > rectB.left &&
       rectA.top < rectB.bottom &&
       rectA.bottom > rectB.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
-      isDragging = false;
-      setTimeout(()=>{
-      object.style.left = 5+"%";
-      allowMovement = true;
-      }, 50);
-    } else {
-      // No hay colisión
-      allowMovement = true; 
-    }
-    if (
-      rectA.left < rectC.right &&
-      rectA.right > rectC.left &&
-      rectA.top < rectC.bottom &&
+      ) {
+        // Colisión detectada, detener movimiento
+        allowMovement = false;
+        isDragging = false;
+        setTimeout(()=>{
+          object.style.left = 5+"%";
+          allowMovement = true;
+        }, 50);
+      } else {
+        // No hay colisión
+        allowMovement = true; 
+      }
+      if (
+        rectA.left < rectC.right &&
+        rectA.right > rectC.left &&
+        rectA.top < rectC.bottom &&
       rectA.bottom > rectC.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
-      isDragging = false;
-      setTimeout(()=>{
+      ) {
+        // Colisión detectada, detener movimiento
+        allowMovement = false;
+        isDragging = false;
+        setTimeout(()=>{
       object.style.left = 5+"%";
       allowMovement = true;
-      }, 50);
-    } else {
+    }, 50);
+  } else {
       // No hay colisión
       allowMovement = true; 
     }
@@ -349,8 +347,8 @@ maze.addEventListener("mousemove", (e) => {
       allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
-      object.style.left = 5+"%";
-      allowMovement = true;
+        object.style.left = 5+"%";
+        allowMovement = true;
       }, 50);
     } else {
       // No hay colisión
@@ -361,14 +359,14 @@ maze.addEventListener("mousemove", (e) => {
       rectA.right > rectF.left &&
       rectA.top < rectF.bottom &&
       rectA.bottom > rectF.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
-      isDragging = false;
-      setTimeout(()=>{
-      object.style.left = 5+"%";
-      allowMovement = true;
-      }, 50);
+      ) {
+        // Colisión detectada, detener movimiento
+        allowMovement = false;
+        isDragging = false;
+        setTimeout(()=>{
+          object.style.left = 5+"%";
+          allowMovement = true;
+        }, 50);
     } else {
       // No hay colisión
       allowMovement = true; 
@@ -378,13 +376,13 @@ maze.addEventListener("mousemove", (e) => {
       rectA.right > rectG.left &&
       rectA.top < rectG.bottom &&
       rectA.bottom > rectG.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
+      ) {
+        // Colisión detectada, detener movimiento
+        allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
-      object.style.left = 5+"%";
-      allowMovement = true;
+        object.style.left = 5+"%";
+        allowMovement = true;
       }, 50);
     } else {
       // No hay colisión
@@ -395,33 +393,33 @@ maze.addEventListener("mousemove", (e) => {
       rectA.right > rectH.left &&
       rectA.top < rectH.bottom &&
       rectA.bottom > rectH.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
+      ) {
+        // Colisión detectada, detener movimiento
+        allowMovement = false;
+        isDragging = false;
+        setTimeout(()=>{
+          object.style.left = 5+"%";
+          allowMovement = true;
+        }, 50);
+      } else {
+        // No hay colisión
+        allowMovement = true; 
+      }
+      if (
+        rectA.left < rectI.right &&
+        rectA.right > rectI.left &&
+        rectA.top < rectI.bottom &&
+        rectA.bottom > rectI.top 
+        ) {
+          // Colisión detectada, detener movimiento
+          allowMovement = false;
       isDragging = false;
       setTimeout(()=>{
-      object.style.left = 5+"%";
+        object.style.left = 5+"%";
       allowMovement = true;
-      }, 50);
-    } else {
-      // No hay colisión
-      allowMovement = true; 
-    }
-    if (
-      rectA.left < rectI.right &&
-      rectA.right > rectI.left &&
-      rectA.top < rectI.bottom &&
-      rectA.bottom > rectI.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
-      isDragging = false;
-      setTimeout(()=>{
-      object.style.left = 5+"%";
-      allowMovement = true;
-      }, 50);
-    } else {
-      // No hay colisión
+    }, 50);
+  } else {
+    // No hay colisión
       allowMovement = true; 
     }
     if (
@@ -436,7 +434,7 @@ maze.addEventListener("mousemove", (e) => {
       setTimeout(()=>{
       object.style.left = 5+"%";
       allowMovement = true;
-      }, 50);
+    }, 50);
     } else {
       // No hay colisión
       allowMovement = true; 
@@ -446,26 +444,47 @@ maze.addEventListener("mousemove", (e) => {
       rectA.right > rectK.left &&
       rectA.top < rectK.bottom &&
       rectA.bottom > rectK.top 
-    ) {
-      // Colisión detectada, detener movimiento
-      allowMovement = false;
-      isDragging = false;
-      setTimeout(()=>{
-      object.style.left = 5+"%";
+      ) {
+        // Colisión detectada, detener movimiento
+        allowMovement = false;
+        isDragging = false;
+        setTimeout(()=>{
+          object.style.left = 5+"%";
+          allowMovement = true;
+      }, 50);
+    } else {
+      // No hay colisión
+      allowMovement = true; 
+    }
+    // win interface
+    const winner = document.getElementById("win");
+    
+    const rectW = winner.getBoundingClientRect();
+    if (
+      rectA.left < rectW.right &&
+      rectA.right > rectW.left &&
+      rectA.top < rectW.bottom &&
+      rectA.bottom > rectW.top 
+      ) {
+        // Colisión detectada, mostrar interface
+        allowMovement = false;
+        isDragging = false;
+        setTimeout(()=>{
+          object.style.left = 5+"%";
       allowMovement = true;
       }, 50);
     } else {
       // No hay colisión
       allowMovement = true; 
     }
+    // win interface
   }
-
+  
 });
-
-
-
-
-
+const arrow = document.querySelector(".arrow")
+object.addEventListener("mousedown",()=>{
+  arrow.classList.add("opacity");
+})
 // web
 // Object inside the maze
 
