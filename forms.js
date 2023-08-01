@@ -95,7 +95,7 @@ postLog.addEventListener('submit',(e)=>{
 function authenticate() {
   const user = "Luis";  
   const dni = 1001207568;
-  const pass = 1234;
+  const pass = 1352;
   let user_A = document.querySelector("#user").value;
   let dni_A = document.querySelector("#dni").value;
   let pass_A = document.querySelector("#pass").value; 
