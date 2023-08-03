@@ -59,6 +59,10 @@ setTimeout(() => {
         head.classList.add("displayN");
         screenEnd.classList.remove("displayN");
         document.getElementById("countEnd").innerHTML = txtSeconds;
+        let countEnd = document.getElementById("countEnd");
+        setInterval(()=>{
+          countEnd.classList.toggle("countDis");
+        }, 400)
       },1000);
     } else {
       // No hay colisión
