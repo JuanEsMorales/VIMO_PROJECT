@@ -14,6 +14,9 @@ outputh.textContent = height.value
 height.addEventListener('input', function() {
   outputh.textContent = height.value
 });
+export let fatigue = document.querySelector(".levelf");
+
+
 
 // firebase
 // Import the functions you need from the SDKs you need

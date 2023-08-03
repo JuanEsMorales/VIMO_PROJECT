@@ -1,3 +1,4 @@
+let points = 50;
 let count = 3;
 let seconds = 0;
 let tempF = setInterval(countFirst, 1000);
@@ -20,6 +21,15 @@ setTimeout(() => {
 }, 5100);
 setTimeout(() => {
   let temp = setInterval(secondsCont, 1000);
+  let point = setInterval(pointsCont, 1000);
+  function pointsCont() {
+    let txtPoints;
+    if(seconds > 10) {
+      txtPoints = points;
+      points--;
+    }
+    document.getElementById("h4").innerHTML = txtPoints;
+  }
   function secondsCont() {
     let txtSeconds;
     const screenEnd = document.getElementById("screenEnd");
@@ -35,8 +45,8 @@ setTimeout(() => {
     document.getElementById("seconds").innerHTML = txtSeconds;
     seconds++;
 
-    if (seconds == 21) {
-      
+    if (seconds == 52) {
+      clearInterval(point);
     }
     // win interface
     const rectA = object.getBoundingClientRect();
@@ -51,6 +61,7 @@ setTimeout(() => {
       allowMovement = false;
       isDragging = false;
       clearInterval(temp);
+      clearInterval(point);
       seconds--;
       sec.classList.add("end");
       head.classList.add("end");
