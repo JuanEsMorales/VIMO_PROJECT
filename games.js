@@ -1,13 +1,21 @@
 let points = 50;
+let countPvt = 3; 
 let count = 3;
 let seconds = 0;
 let tempF = setInterval(countFirst, 1000);
 function countFirst() {
   let txtCount;
+  let txtCountPvt;
+  txtCountPvt = countPvt;
   txtCount = count;
   document.getElementById("count").innerHTML = txtCount;
   count--;
   if (count < 0) {
+    clearInterval(tempF);
+  }
+  document.getElementById("count-pvt").innerHTML = txtCountPvt;
+  countPvt--;
+  if (countPvt < 0) {
     clearInterval(tempF);
   }
 }
