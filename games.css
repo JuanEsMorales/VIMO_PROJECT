@@ -374,7 +374,6 @@ section{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    display: none;
 }
 .sEnd{
     animation: screenEnd 1s ease-in-out forwards;
@@ -469,6 +468,7 @@ section{
     }
 }
 /* PVT test */
+/* pvt count */
 .principal-pvt{
     width: 100vw;
     height: 100vh;
@@ -482,6 +482,7 @@ section{
     justify-content: flex-start;
     text-align: center;
     color: white;
+    animation: endFade 1s ease-in-out 4s forwards;
 }
 .content-prin{
     height: 70%;
@@ -494,8 +495,6 @@ section{
     gap: 100px;
     color: white;
     opacity: 0;
-}
-.pvt-anim{
     animation: fadePvt 1s ease-in-out forwards;
 }
 #LogoVimo-pvt img{
@@ -514,6 +513,20 @@ section{
     position: absolute;
     z-index: 1;
     animation: countUp 1s ease-out forwards;
+}
+.pvtN{
+    display: none;
+}
+@keyframes endFade{
+    0%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 @keyframes fadePvt{
     0%{
@@ -537,6 +550,41 @@ section{
         top: 50%;
         opacity: 1;
     }
+}
+/* pvt count */
+.header{
+    width: 100vw;
+    height: 10%;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(34,94,195,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+#secondsPvt{
+    color: white;
+    font-size: 7rem;
+}
+/* pvt buttons */
+.game-buttons{
+    width: 100vw;
+    height: 72.8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#road{
+    width: 100vw;
+    height: 72.8vh;
+    position: absolute;
+    z-index: -1;
+}
+.game-buttons img{
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
 }
 @media (max-width: 600px){
     header{

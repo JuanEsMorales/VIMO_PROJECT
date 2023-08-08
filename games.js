@@ -1,24 +1,31 @@
 let points = 50;
-let countPvt = 3; 
 let count = 3;
+let countPvt = 3; 
 let seconds = 0;
 let tempF = setInterval(countFirst, 1000);
 function countFirst() {
   let txtCount;
-  let txtCountPvt;
-  txtCountPvt = countPvt;
   txtCount = count;
   document.getElementById("count").innerHTML = txtCount;
   count--;
   if (count < 0) {
     clearInterval(tempF);
   }
-  document.getElementById("count-pvt").innerHTML = txtCountPvt;
-  countPvt--;
-  if (countPvt < 0) {
-    clearInterval(tempF);
-  }
 }
+const greenButton = document.getElementById("green-button");
+const buttonPressed = document.getElementById("green-pressed");
+const min = 1;
+const max = 10;
+const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+console.log(randomNumber);
+greenButton.addEventListener('mousedown', ()=>{
+  greenButton.classList.toggle("pvtN");
+  buttonPressed.classList.toggle("pvtN");
+  setTimeout(()=>{
+    greenButton.classList.toggle("pvtN");
+    buttonPressed.classList.toggle("pvtN");
+  },100);
+})
 setTimeout(() => {
   const dis = document.querySelector(".principal");
   const sec = document.querySelector("section");
@@ -82,6 +89,22 @@ setTimeout(() => {
         setInterval(()=>{
           countEnd.classList.toggle("countDis");
         }, 400)
+
+        // setTimeout(()=>{
+        //   const princPvt = document.querySelector(".principal-pvt")
+        //   screenEnd.classList.add("displayN");
+        //   princPvt.classList.remove("pvtN");
+        //   let tempPvt = setInterval(countFirstPvt, 1000);
+        //   function countFirstPvt(){
+        //     let txtCountPvt;
+        //     txtCountPvt = countPvt;
+        //     document.getElementById("count-pvt").innerHTML = txtCountPvt;
+        //     countPvt--;
+        //     if (countPvt < 0) {
+        //       clearInterval(tempPvt);
+        //     }
+        //   }
+        // },4000);
       },1000);
     } else {
       // No hay colisión
