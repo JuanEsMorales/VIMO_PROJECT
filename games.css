@@ -15,7 +15,6 @@
     justify-content: space-evenly;
     color: white;
     animation: disappear 1s 4s forwards;
-    display: none;
 }
 @keyframes disappear{
     0%{
@@ -115,7 +114,6 @@ header{
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(34,94,195,1) 100%);
     position: relative;
     user-select: none;
-    display: none;
 }
 .seconds{
     color: white;
@@ -132,7 +130,6 @@ section{
     align-items: center;
     flex-direction: column;
     position: relative;
-    display: none;
 }
 .maze{
     margin-top: 1rem;
@@ -561,6 +558,7 @@ section{
     justify-content: center;
     align-items: center;
     justify-content: space-around;
+    user-select: none;
 }
 #secondsPvt{
     color: white;
@@ -585,6 +583,25 @@ section{
     width: 150px;
     height: 150px;
     cursor: pointer;
+    user-select: none;
+}
+.green-buttons{
+    transform: translateX(13rem);
+    animation: buttonsLeft .3s ease-in-out forwards;
+    opacity: 0;
+}
+@keyframes buttonsLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(13rem);
+    }
+    20%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 @media (max-width: 600px){
     header{
