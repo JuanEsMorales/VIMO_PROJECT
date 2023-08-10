@@ -15,6 +15,7 @@
     justify-content: space-evenly;
     color: white;
     animation: disappear 1s 4s forwards;
+    display: none;
 }
 @keyframes disappear{
     0%{
@@ -114,6 +115,7 @@ header{
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(34,94,195,1) 100%);
     position: relative;
     user-select: none;
+    display: none;
 }
 .seconds{
     color: white;
@@ -130,6 +132,7 @@ section{
     align-items: center;
     flex-direction: column;
     position: relative;
+    display: none;
 }
 .maze{
     margin-top: 1rem;
@@ -371,6 +374,7 @@ section{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    display: none;
 }
 .sEnd{
     animation: screenEnd 1s ease-in-out forwards;
@@ -480,6 +484,10 @@ section{
     text-align: center;
     color: white;
     animation: endFade 1s ease-in-out 4s forwards;
+    display: none;
+}
+.pvt-end{
+    animation: endPvt 1s ease-in-out forwards;
 }
 .content-prin{
     height: 70%;
@@ -603,6 +611,45 @@ section{
         transform: translateX(0);
     }
 }
+@keyframes endPvt{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+/* PVT test */
+/* RISK RESULT */
+.results{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    background: rgb(251,251,251);
+    background: linear-gradient(0deg, rgba(251,251,251,1) 0%, rgba(29,184,253,1) 50%, rgba(23,97,204,1) 87%);
+}
+.main-result{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+#check{
+    width: 200px;
+    height: 200px;
+}
+.risk-message{
+    text-shadow: 0px 0px 2px rgb(0, 12, 29);
+    color: green;
+}
+/* RISK RESULT */
 @media (max-width: 600px){
     header{
         display: grid;

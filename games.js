@@ -14,6 +14,7 @@ function countFirst() {
     clearInterval(tempF);
   }
 }
+// BUTTONS GAME PVT
 const greenButton = document.getElementById("green-button");
 const buttonPressed = document.getElementById("green-pressed");
 const clickButtons = document.querySelector(".click-buttons");
@@ -50,7 +51,8 @@ clickButtons.addEventListener('mousedown', ()=>{
   greenButtons.classList.toggle("pvtN");
   stopSign.classList.toggle("pvtN");
 }
-})
+});
+// BUTTONS GAME PVT
 setTimeout(() => {
   const dis = document.querySelector(".principal");
   const sec = document.querySelector("section");
@@ -115,7 +117,7 @@ setTimeout(() => {
         setInterval(()=>{
           countEnd.classList.toggle("countDis");
         }, 400)
-
+// PVT GAME
      setTimeout(()=>{
        const princPvt = document.querySelector(".principal-pvt")
         screenEnd.classList.add("displayN");
@@ -143,11 +145,18 @@ setTimeout(() => {
                 
               if (countDownPvt < 0) {
                 clearInterval(countInterPvt);
+                setTimeout(()=>{
+                  pvtGame.classList.add("pvt-end");
+                },1000);
+                setTimeout(()=>{
+                  pvtGame.classList.add("pvtN");
+                },1200);
               }
             }
           }
          }
       },4000);
+// PVT GAME
       },1000);
     } else {
       // No hay colisión
