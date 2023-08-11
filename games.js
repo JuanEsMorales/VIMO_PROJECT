@@ -33,7 +33,41 @@ stopSign.addEventListener('mousedown',()=>{
   txtPoints = points;
   document.getElementById("h4").innerHTML = txtPoints;
   points--;
-})
+});
+// risks-interface
+function riskLevel() {
+  const riskCheck = document.getElementById("check");
+  const riskMessage = document.querySelector(".risk-message");
+  const risk = document.querySelector(".risk");
+  const resetTest = document.getElementById("button-reset");
+  const results = document.querySelector(".results");
+  const dis = document.querySelector(".principal");
+  if (points > 30 && points < 40) {
+    riskCheck.src = 'check-medium.png';
+    riskMessage.innerHTML = "RIESGO MEDIO BAJO";
+    riskMessage.style.color = "yellow";
+    risk.innerHTML = "¡Muy bien!";
+  }
+  else if (points > 25 && points < 30) {
+    riskCheck.src = 'check-medium-high.png';
+    riskMessage.innerHTML = "RIESGO MEDIO ALTO";
+    riskMessage.style.color = "orange";
+    risk.innerHTML = "¡Puedes mejorar!";
+    resetTest.classList.remove("pvtN");
+  }
+  else if(points < 25){
+    riskCheck.src = 'high-risk.png';
+    riskMessage.innerHTML = "ALTO RIESGO";
+    riskMessage.style.color = "red";
+    risk.classList.add("pvtN");
+    resetTest.classList.remove("pvtN");
+  }
+  resetTest.addEventListener("click", ()=>{
+    results.classList.toggle("resultN");
+    dis.classList.toggle("displayN");
+  })
+}
+// risks-interface
 clickButtons.addEventListener('mousedown', ()=>{
   numberRandom();
   if (numberRandom() > 20 && numberRandom() < 100) {
@@ -134,6 +168,7 @@ setTimeout(() => {
             pvtGame.classList.remove("pvtN");
             let countInterPvt = setInterval(countPvtGame, 1000);
             function countPvtGame() {
+              const results = document.querySelector(".results");
               let txtCountDownPvt;
               if (countDownPvt < 10) {
               txtCountDownPvt = `0${countDownPvt}`;
@@ -146,10 +181,11 @@ setTimeout(() => {
               if (countDownPvt < 0) {
                 clearInterval(countInterPvt);
                 setTimeout(()=>{
-                  pvtGame.classList.add("pvt-end");
+                  pvtGame.classList.add("pvtN");
                 },1000);
                 setTimeout(()=>{
-                  pvtGame.classList.add("pvtN");
+                  riskLevel();
+                  results.classList.remove("resultN");
                 },1200);
               }
             }

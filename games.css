@@ -15,7 +15,6 @@
     justify-content: space-evenly;
     color: white;
     animation: disappear 1s 4s forwards;
-    display: none;
 }
 @keyframes disappear{
     0%{
@@ -115,7 +114,6 @@ header{
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(34,94,195,1) 100%);
     position: relative;
     user-select: none;
-    display: none;
 }
 .seconds{
     color: white;
@@ -132,7 +130,6 @@ section{
     align-items: center;
     flex-direction: column;
     position: relative;
-    display: none;
 }
 .maze{
     margin-top: 1rem;
@@ -374,7 +371,6 @@ section{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    display: none;
 }
 .sEnd{
     animation: screenEnd 1s ease-in-out forwards;
@@ -484,7 +480,6 @@ section{
     text-align: center;
     color: white;
     animation: endFade 1s ease-in-out 4s forwards;
-    display: none;
 }
 .pvt-end{
     animation: endPvt 1s ease-in-out forwards;
@@ -648,6 +643,13 @@ section{
 .risk-message{
     text-shadow: 0px 0px 2px rgb(0, 12, 29);
     color: green;
+}
+.risk{
+    font-size: 30px;
+    font-weight: 500;
+}
+.resultN{
+    display: none;
 }
 /* RISK RESULT */
 @media (max-width: 600px){
