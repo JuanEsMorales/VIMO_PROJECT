@@ -625,8 +625,11 @@ section{
     align-items: center;
     justify-content: space-around;
     text-align: center;
+    gap: 20px;
     background: rgb(251,251,251);
     background: linear-gradient(0deg, rgba(251,251,251,1) 0%, rgba(29,184,253,1) 50%, rgba(23,97,204,1) 87%);
+    opacity: 0;
+    animation: resultsInit 1s ease-in-out forwards;
 }
 .main-result{
     height: 60%;
@@ -650,6 +653,32 @@ section{
 }
 .resultN{
     display: none;
+}
+.resultEnd{
+    animation: resultEnd 1s ease-in-out forwards;
+}
+@keyframes resultsInit{
+    0%{
+        opacity: 0;
+        gap: 20px;
+    }
+    100%{
+        opacity: 1;
+        gap: 0;
+    }
+}
+@keyframes resultEnd{
+    0%{
+        opacity: 1;
+        gap: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        gap: 20px;
+    }
 }
 /* RISK RESULT */
 @media (max-width: 600px){

@@ -62,10 +62,15 @@ function riskLevel() {
     risk.classList.add("pvtN");
     resetTest.classList.remove("pvtN");
   }
-  resetTest.addEventListener("click", ()=>{
-    results.classList.toggle("resultN");
-    dis.classList.toggle("displayN");
-  })
+
+  if (points > 30 && points <= 50 ) {
+    setTimeout(()=>{
+      results.classList.add("resultEnd");
+    },4000);
+    setTimeout(()=>{
+      results.classList.toggle("resultN");
+    },5000);
+  }
 }
 // risks-interface
 clickButtons.addEventListener('mousedown', ()=>{
